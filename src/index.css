@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-poppins: "Poppins", sans-serif;
+  --font-pacifico: "Pacifico", cursive;
+  --font-bitcount: "Bitcount Prop Single", system-ui;
+  /* Primary Brand Colors */
+  --color-primary: #D0F1BF;
+  --color-primary-dark: #030027;
+
+  --color-secondary: #483D03;
+  --color-secondary-dark: #F2F3D9;
+
+  /* Background Colors */
+  --color-bg: #f9fafb;
+  /* Gray-50 */
+  --color-bg-dark: #0f172a;
+  /* Slate-900 */
+
+  /* Text Colors */
+  --color-text: #111827;
+  --color-text-dark: #f3f4f6;
+
+  /* Accent Colors */
+  --color-accent: #f97316;
+  /* Orange-500 */
+  --color-accent-dark: #ea580c;
+  /* Orange-600 */
+
+  /* Border/Divider Color */
+  --color-border: #e5e7eb;
+  /* Gray-200 */
+  --color-border-dark: #1e293b;
+  /* Slate-800 */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* border gradient */
