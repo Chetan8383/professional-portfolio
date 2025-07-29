@@ -84,18 +84,34 @@ const Hero = () => {
             </div>
 
 
-            <div className="w-full md:w-1/2 z-10 flex justify-end items-center ">
-                <pre id="codeScroll" className=" bg-bg/10 dark:bg-bg-dark/10 text-accent dark:text-accent-dark p-6 rounded-md text-sm font-mono leading-loose max-w-md whitespace-pre-wrap ">
-                    <span id="typedCode">
-                        {`const developer = {  
-  name: "Chetan Mehra",
-  stack: "MERN",
-  passion: "Clean UI, Fast APIs",
-  animate: () => "GSAP on scroll"
-};`}</span>
+            <div className="w-full md:w-1/2 z-10 flex justify-end items-center">
+                <pre
+                    id="codeScroll"
+                    className="bg-bg/10 dark:bg-bg-dark/10 text-accent dark:text-accent-dark p-6 rounded-md text-sm font-mono leading-loose max-w-md whitespace-pre-wrap"
+                >
+                    <code id="typedCode">
+                        <div>
+                            <span className="text-text dark:text-text-dark">const</span> <span className="text-orange-500">developer</span> = {'{'}
+                        </div>
+                        <div>
+                            &nbsp;&nbsp;<span className="text-success dark:text-success-dark">name</span>: <span className="text-accent dark:text-accent-dark">"Chetan Mehra"</span>,
+                        </div>
+                        <div>
+                            &nbsp;&nbsp;<span className="text-success dark:text-success-dark">stack</span>: <span className="text-accent dark:text-accent-dark">"MERN"</span>,
+                        </div>
+                        <div>
+                            &nbsp;&nbsp;<span className="text-success dark:text-success-dark">passion</span>: <span className="text-accent dark:text-accent-dark">"Clean UI, Fast APIs"</span>,
+                        </div>
+                        <div>
+                            &nbsp;&nbsp;<span className="text-success dark:text-success-dark">animate</span>: <span className="text-text dark:text-text-dark">() =&gt;</span>{" "}
+                            <span className="text-orange-400">"GSAP on scroll"</span>
+                        </div>
+                        <div>{'};'}</div>
+                    </code>
                 </pre>
 
             </div>
+
         </section>
     );
 };

@@ -29,6 +29,12 @@
   --color-accent-dark: #ea580c;
   /* Orange-600 */
 
+  --color-success: #22c55e;
+  /* Light mode: emerald-500 */
+  --color-success-dark: #16a34a;
+  /* Dark mode: emerald-600 */
+
+
   /* Border/Divider Color */
   --color-border: #e5e7eb;
   /* Gray-200 */
