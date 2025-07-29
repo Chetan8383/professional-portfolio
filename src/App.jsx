@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger, SplitText } from "gsap/all";
 import Navbar from "./components/ui/Navbar";
 import Hero from "./components/ui/Hero";
+import About from "./pages/About";
 
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -15,8 +16,9 @@ function App() {
 
       <div className="">
         <Hero />
+        <About />
       </div>
-      <div className="h-1000"></div>
+      
     </div>
   );
 }

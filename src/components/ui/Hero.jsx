@@ -44,6 +44,20 @@ const Hero = () => {
         });
     }, []);
 
+    useGSAP(() => {
+        gsap.from("#codeScroll", {
+            x: 200,
+            opacity: 0,
+            duration: 1.5,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: "#codeScroll",
+                start: "top 85%",
+                toggleActions: "play none none none",
+            },
+        });
+    }, []);
+
     return (
         <section className="relative min-h-screen flex flex-col lg:flex-row justify-center items-start lg:items-center gap-4 px-6 lg:px-20 overflow-hidden">
             {/* Background image */}
@@ -51,7 +65,7 @@ const Hero = () => {
                 ref={bgRef}
                 className="absolute top-0 left-0 w-full h-full bg-cover bg-center scale-100 z-0 transition-all duration-300
                 bg-[url('https://plus.unsplash.com/premium_photo-1677622678379-115b35bf27e8?q=80&w=1189&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]
-                dark:bg-[url('https://images.unsplash.com/photo-1509023464722-18d996393ca8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]
+                dark:bg-[url('https://images.unsplash.com/photo-1535868463750-c78d9543614f?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]
                 "
             ></div>
 
@@ -67,8 +81,15 @@ const Hero = () => {
             </div>
 
 
-            <div className="w-1/2 z-10 flex justify-center">
-                
+            <div className="w-1/2 z-10 flex justify-center items-center">
+                <pre id="codeScroll" className="bg-black/70 text-green-400 p-6 rounded-md text-sm font-mono leading-loose max-w-md">
+                    {`const developer = {
+  name: "Chetan Mehra",
+  stack: "MERN",
+  passion: "Clean UI, Fast APIs",
+  animate: () => "GSAP on scroll"
+};`}
+                </pre>
             </div>
         </section>
     );
