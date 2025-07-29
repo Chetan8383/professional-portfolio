@@ -45,11 +45,13 @@ const Hero = () => {
     }, []);
 
     useGSAP(() => {
-        gsap.from("#codeScroll", {
-            x: 200,
+        const split = new SplitText("#typedCode", { type: "chars" });
+
+        gsap.from(split.chars, {
             opacity: 0,
-            duration: 1.5,
-            ease: "power2.out",
+            duration: 0.05,
+            stagger: 0.03,
+            ease: "power1.inOut",
             scrollTrigger: {
                 trigger: "#codeScroll",
                 start: "top 85%",
@@ -58,6 +60,7 @@ const Hero = () => {
         });
     }, []);
 
+
     return (
         <section className="relative min-h-screen flex flex-col lg:flex-row justify-center items-start lg:items-center gap-4 px-6 lg:px-20 overflow-hidden">
             {/* Background image */}
@@ -65,7 +68,7 @@ const Hero = () => {
                 ref={bgRef}
                 className="absolute top-0 left-0 w-full h-full bg-cover bg-center scale-100 z-0 transition-all duration-300
                 bg-[url('https://plus.unsplash.com/premium_photo-1677622678379-115b35bf27e8?q=80&w=1189&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]
-                dark:bg-[url('https://images.unsplash.com/photo-1535868463750-c78d9543614f?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]
+                dark:bg-[url('/hero-bg-dark.jpg')]
                 "
             ></div>
 
@@ -81,15 +84,17 @@ const Hero = () => {
             </div>
 
 
-            <div className="w-1/2 z-10 flex justify-center items-center">
-                <pre id="codeScroll" className="bg-black/70 text-green-400 p-6 rounded-md text-sm font-mono leading-loose max-w-md">
-                    {`const developer = {
+            <div className="w-full md:w-1/2 z-10 flex justify-end items-center ">
+                <pre id="codeScroll" className=" bg-bg/10 dark:bg-bg-dark/10 text-accent dark:text-accent-dark p-6 rounded-md text-sm font-mono leading-loose max-w-md whitespace-pre-wrap ">
+                    <span id="typedCode">
+                        {`const developer = {  
   name: "Chetan Mehra",
   stack: "MERN",
   passion: "Clean UI, Fast APIs",
   animate: () => "GSAP on scroll"
-};`}
+};`}</span>
                 </pre>
+
             </div>
         </section>
     );

@@ -55,6 +55,13 @@ const ThemeToggle = () => {
         );
     }, [dark]);
 
+
+    const handleToggle = () => {
+        const toggleSound = new Audio("/sounds/toggle.mp3");
+        toggleSound.play();
+        setDark(!dark);
+    };
+
     return (
         <label useRef={switchContainerRef} className="inline-flex flex-col items-center gap-2 cursor-pointer fixed right-5 bottom-5 z-999">
             <Sun ref={sunRef} className=" text-accent-dark dark:text-text-dark size-4" />
@@ -65,7 +72,7 @@ const ThemeToggle = () => {
                     id="toggle"
                     type="checkbox"
                     checked={dark}
-                    onChange={() => setDark(!dark)}
+                    onChange={handleToggle}
                 />
 
                 <div

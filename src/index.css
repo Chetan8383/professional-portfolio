@@ -40,16 +40,27 @@ html {
   scroll-behavior: smooth;
 }
 
-/* border gradient */
-@layer utilities {
-  .masked-img {
-    mask-image: url('/mask-img.png');
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: 50%;
-    -webkit-mask-image: url('/mask-img.png');
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    -webkit-mask-size: 50%;
-  }
+
+
+
+.border-gradient {
+  background:
+    linear-gradient(to right, transparent, black, transparent) top,
+    linear-gradient(to right, transparent, black, transparent) bottom;
+  background-size: 100% 0.5px;
+  background-repeat: no-repeat;
+  background-position: top, bottom;
+  background-color: transparent !important;
+  /* No fill */
+}
+
+.dark .border-gradient {
+  background:
+    linear-gradient(to right, transparent, white, transparent) top,
+    linear-gradient(to right, transparent, white, transparent) bottom;
+  background-size: 100% 0.5px;
+  background-repeat: no-repeat;
+  background-position: top, bottom;
+  background-color: transparent !important;
+  /* No fill */
 }
