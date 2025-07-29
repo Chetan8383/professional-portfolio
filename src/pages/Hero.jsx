@@ -104,7 +104,7 @@ const Hero = () => {
                         </div>
                         <div>
                             &nbsp;&nbsp;<span className="text-success dark:text-success-dark">animate</span>: <span className="text-text dark:text-text-dark">() =&gt;</span>{" "}
-                            <span className="text-orange-400">"GSAP on scroll"</span>
+                            <span className="text-accent dark:text-accent-dark">"GSAP on scroll"</span>
                         </div>
                         <div>{'};'}</div>
                     </code>
