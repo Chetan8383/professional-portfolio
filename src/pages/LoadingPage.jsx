@@ -29,7 +29,7 @@ const LoadingPage = ({ onComplete }) => {
             onComplete: () => {
                 // Scroll-up animation
                 gsap.to(loaderRef.current, {
-                    y: '-100%',
+                    x: '-100%',
                     duration: 1,
                     ease: 'power3.inOut',
                     onComplete: () => {

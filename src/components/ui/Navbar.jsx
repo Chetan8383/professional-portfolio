@@ -42,6 +42,13 @@ const Navbar = () => {
         );
     }, []);
 
+        const handleScroll = (title) => {
+        const section = document.getElementById(title);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <nav
             ref={navRef}
@@ -50,7 +57,8 @@ const Navbar = () => {
             <div className="flex gap-2 !text-center">
                 {list.map((item, index) => (
                     <Tooltip key={index} text={item.title} position="top" width="w-xs">
-                        <div className="bg-primary-dark dark:bg-primary text-text-dark dark:text-text p-2 rounded-full hover:-translate-y-1 hover:scale-105 duration-200 ease-in-out">
+                        <div onClick={() => handleScroll(item.title)}
+                            className="bg-primary-dark dark:bg-primary text-text-dark dark:text-text p-2 rounded-full hover:-translate-y-1 hover:scale-105 duration-200 ease-in-out">
                             {item.icon}
                         </div>
                     </Tooltip>
