@@ -62,7 +62,7 @@ const Hero = () => {
 
 
     return (
-        <section className="relative min-h-screen flex flex-col lg:flex-row justify-center items-start lg:items-center gap-4 px-6 lg:px-20 overflow-hidden">
+        <section className="relative min-h-screen flex flex-col md:flex-row justify-around md:justify-center items-start lg:items-center gap-4 px-6 lg:px-20 overflow-hidden">
             {/* Background image */}
             <div
                 ref={bgRef}
@@ -73,7 +73,7 @@ const Hero = () => {
             ></div>
 
             {/* Hero content */}
-            <div className="relative z-10 w-full md:w-1/2 text-center md:text-left">
+            <div className="relative z-10 w-full md:w-1/2 text-left">
                 <p id="title" className="text-md text-text font-bold dark:text-text-dark mb-2">Hi, my name is Chetan Mehra</p>
                 <h2 id="subtitle" className="text-2xl lg:text-4xl text-orange-600 dark:text-orange-400 mb-6 font-bitcount">
                     The best error message is the <br /> one that never shows up.
@@ -87,7 +87,7 @@ const Hero = () => {
             <div className="w-full md:w-1/2 z-10 flex justify-end items-center">
                 <pre
                     id="codeScroll"
-                    className="bg-bg/10 dark:bg-bg-dark/10 text-accent dark:text-accent-dark p-6 rounded-md text-sm font-mono leading-loose max-w-md whitespace-pre-wrap"
+                    className="bg-bg/10 dark:bg-bg-dark/10 text-accent dark:text-accent-dark p-4 md:p-6 rounded-md text-xs md:text-sm  font-mono leading-loose max-w-md whitespace-pre-wrap"
                 >
                     <code id="typedCode">
                         <div>

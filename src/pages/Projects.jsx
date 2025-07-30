@@ -53,6 +53,8 @@ const projects = [
 const Projects = () => {
     const imageRef = useRef(null);
     const [hoveredImg, setHoveredImg] = useState(null);
+    const [isImageLoading, setIsImageLoading] = useState(false);
+
 
     useGSAP(() => {
         gsap.from('#project-card', {
@@ -81,6 +83,7 @@ const Projects = () => {
 
     const handleMouseEnter = (imgUrl) => {
         setHoveredImg(imgUrl);
+        setIsImageLoading(true);
         gsap.to(imageRef.current, {
             opacity: 1,
             scale: 1,
@@ -154,13 +157,26 @@ const Projects = () => {
             {/* Floating Image Preview */}
             <div
                 ref={imageRef}
-                className="pointer-events-none fixed z-[999] opacity-0 scale-95 w-60 h-50 rounded-lg overflow-hidden shadow-xl transition-all duration-300"
+                className="pointer-events-none fixed z-[999] opacity-0 scale-95 w-60 h-50 rounded-lg overflow-hidden shadow-xl transition-all duration-300 bg-white dark:bg-gray-800"
                 style={{ top: 0, left: 0 }}
             >
                 {hoveredImg && (
-                    <img src={hoveredImg} alt="project preview" className="object-cover w-full  h-full" />
+                    <>
+                        {isImageLoading && (
+                            <div className="w-full h-full flex items-center justify-center bg-gray-200 dark:bg-gray-700">
+                                <div className="loader border-4 border-t-transparent border-blue-500 rounded-full w-8 h-8 animate-spin"></div>
+                            </div>
+                        )}
+                        <img
+                            src={hoveredImg}
+                            alt="project preview"
+                            className={`object-cover w-full h-full transition-opacity duration-300 ${isImageLoading ? 'opacity-0' : 'opacity-100'}`}
+                            onLoad={() => setIsImageLoading(false)}
+                        />
+                    </>
                 )}
             </div>
+
         </div>
     );
 };
