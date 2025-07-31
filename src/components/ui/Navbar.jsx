@@ -6,7 +6,7 @@ import { useRef } from 'react';
 
 const list = [
     {
-        title: 'Landing Page',
+        title: 'Home',
         icon: <House className='size-4 lg:size-5 3xl:size-6' />,
     },
     {
@@ -42,7 +42,7 @@ const Navbar = () => {
         );
     }, []);
 
-        const handleScroll = (title) => {
+    const handleScroll = (title) => {
         const section = document.getElementById(title);
         if (section) {
             section.scrollIntoView({ behavior: 'smooth' });
@@ -54,14 +54,13 @@ const Navbar = () => {
             ref={navRef}
             className="fixed bottom-5 left-1/2 -translate-x-1/2 z-999 backdrop-blur-lg text-text dark:text-text-dark p-1 rounded-full border border-border dark:border-border-dark origin-bottom scale-x-0"
         >
-            <div className="flex gap-2 !text-center">
+            <div className="flex gap-2 !text-center ">
                 {list.map((item, index) => (
-                    <Tooltip key={index} text={item.title} position="top" width="w-xs">
-                        <div onClick={() => handleScroll(item.title)}
-                            className="bg-primary-dark dark:bg-primary text-text-dark dark:text-text p-2 rounded-full hover:-translate-y-1 hover:scale-105 duration-200 ease-in-out">
-                            {item.icon}
-                        </div>
-                    </Tooltip>
+                    <div onClick={() => handleScroll(item.title)}
+                        className="flex gap-2 cursor-pointer items-center whitespace-nowrap text-xs bg-primary-dark dark:bg-primary text-text-dark dark:text-text p-2 rounded-full hover:-translate-y-1 hover:scale-105 duration-200 ease-in-out">
+                        {item.icon} 
+                        <span className='hidden md:block'>{item.title}</span>
+                    </div>
                 ))}
             </div>
         </nav>

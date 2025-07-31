@@ -51,6 +51,7 @@ const Hero = () => {
             opacity: 0,
             duration: 0.05,
             stagger: 0.03,
+            delay: '1',
             ease: "power1.inOut",
             scrollTrigger: {
                 trigger: "#codeScroll",
@@ -87,7 +88,7 @@ const Hero = () => {
             <div className="w-full md:w-1/2 z-10 flex justify-end items-center">
                 <pre
                     id="codeScroll"
-                    className="bg-bg/10 dark:bg-bg-dark/10 text-accent dark:text-accent-dark p-4 md:p-6 rounded-md text-xs md:text-sm  font-mono leading-loose max-w-md whitespace-pre-wrap"
+                    className="bg-bg/10 dark:bg-bg-dark/10 backdrop-blur-md text-accent dark:text-accent-dark p-4 md:p-6 rounded-md text-xs md:text-sm  font-mono leading-loose max-w-md whitespace-pre-wrap"
                 >
                     <code id="typedCode">
                         <div>

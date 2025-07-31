@@ -30,7 +30,6 @@ const LoadingPage = ({ onComplete }) => {
                 // Scroll-up animation
                 gsap.to(loaderRef.current, {
                     x: '-100%',
-                    duration: 1,
                     ease: 'power3.inOut',
                     onComplete: () => {
                         if (onComplete) onComplete();
@@ -43,10 +42,10 @@ const LoadingPage = ({ onComplete }) => {
     return (
         <section
             ref={loaderRef}
-            className="fixed inset-0 z-999999 flex flex-col justify-center border-b border-border dark:border-border-dark items-center bg-bg dark:bg-bg-dark text-text dark:text-text-dark font-bitcount text-4xl md:text-6xl"
+            className="fixed inset-0 z-999999 flex flex-col justify-center border-b border-border dark:border-border-dark items-center bg-bg dark:bg-bg-dark text-text dark:text-text-dark  text-4xl md:text-6xl"
         >
-            <span ref={counterRef}>{percentage}%</span>
-            <span className='!text-sm'>Loading...</span>
+            <span className='font-bitcount ' ref={counterRef}>{percentage}%</span>
+            <span className='!text-sm font-pacifico animate-pulse'>Loading...</span>
         </section>
     );
 };
