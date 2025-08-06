@@ -1,18 +1,17 @@
 import { useGSAP } from "@gsap/react";
-import gsap from 'gsap'
+import gsap from 'gsap';
 import { NavLink } from "react-router-dom";
 
 const variants = {
-    ghost: "text-current hover:bg-current/10  ",
+    ghost: "text-current hover:bg-current/10",
+    primary: "bg-bg-dark/10 dark:bg-bg/10",
 };
-
 
 const sizes = {
-  sm: "text-sm px-3 py-1.5",
-  md: "text-xs md:text-sm lg:text-base px-4 py-2",
-  lg: "text-base md:text-lg px-6 py-3",
+    sm: "text-sm px-3 py-1.5",
+    md: "text-xs md:text-sm lg:text-base px-4 py-2",
+    lg: "text-base md:text-lg px-6 py-3",
 };
-
 
 const Button = ({
     children,
@@ -24,9 +23,11 @@ const Button = ({
     className = "",
     ...props
 }) => {
+    const hasText = !!children;
 
     useGSAP(() => {
-        gsap.fromTo("#text",
+        gsap.fromTo(
+            "#text",
             { y: 10, opacity: 0 },
             {
                 y: 0,
@@ -35,25 +36,23 @@ const Button = ({
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: "#text",
-                    start: "top center", 
+                    start: "top center",
                     toggleActions: "play none none none",
                 },
             }
         );
-    })
-
+    });
 
     const classes = `
-    inline-flex items-center gap-2 transition-all duration-200  cursor-pointer 
-    rounded-md ${variants[variant]} ${sizes[size]} ${className}
-  `;
+        inline-flex items-center transition-all duration-200 cursor-pointer rounded-md
+        ${variants[variant]} ${sizes[size]} ${className}
+        ${hasText ? "gap-2" : "justify-center w-10 h-10"} 
+    `;
 
     const content = (
         <span className={classes} id="text">
             {icon && iconPosition === "left" && <span className="icon">{icon}</span>}
-            <span >
-                {children}
-            </span>
+            {hasText && <span>{children}</span>}
             {icon && iconPosition === "right" && <span className="icon">{icon}</span>}
         </span>
     );

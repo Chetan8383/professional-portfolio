@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import gsap from 'gsap';
-import { Grip, List, MoveRight } from 'lucide-react';
+import { ChevronRight, Grip, List } from 'lucide-react';
 import Button from '../components/common/Buttons';
 import { useGSAP } from '@gsap/react';
 import SplitText from 'gsap/SplitText';
@@ -54,7 +54,7 @@ const Projects = () => {
     const imageRef = useRef(null);
     const [hoveredImg, setHoveredImg] = useState(null);
     const [isImageLoading, setIsImageLoading] = useState(false);
-    const [viewMode, setViewMode] = useState('list');
+    const [projectView, setProjectView] = useState('grid');
 
     useGSAP(() => {
         gsap.from('#project-card', {
@@ -121,46 +121,22 @@ const Projects = () => {
 
 
     return (
-        <div
-            className="min-h-screen bg-bg dark:bg-bg-dark px-2 md:px-6 py-8 md:py-16 relative"
-
-        >
-            <h1
-                id="heading"
-                className="text-3xl md:text-5xl text-text dark:text-text-dark font-bitcount text-center mb-10"
-            >
+        <div className="min-h-screen bg-bg dark:bg-bg-dark px-2 md:px-6 py-8 md:py-16 relative">
+            <h1 id="heading" className="text-3xl md:text-5xl text-text dark:text-text-dark font-bitcount text-center mb-10">
                 Projects
             </h1>
-
-            <div className="flex justify-end mb-4">
-                <div
-                    className="relative w-24 h-10 flex items-center justify-between px-2 bg-white dark:bg-gray-800 border border-border dark:border-border-dark rounded-full cursor-pointer"
-                    onClick={() => setViewMode(viewMode === 'list' ? 'card' : 'list')}
-                >
-                    {/* Switch Thumb */}
-                    <div
-                        className={`absolute top-1 left-1 w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 transition-all duration-300 ${viewMode === 'card' ? 'translate-x-[44px]' : 'translate-x-0'
-                            }`}
-                    ></div>
-
-                    {/* List Icon */}
-                    <List
-                        className={`z-10 w-5 h-5 transition-colors ${viewMode === 'list' ? 'text-black dark:text-white' : 'text-gray-400'
-                            }`}
-                    />
-
-                    {/* Card Icon */}
-                    <Grip
-                        className={`z-10 w-5 h-5 transition-colors ${viewMode === 'card' ? 'text-black dark:text-white' : 'text-gray-400'
-                            }`}
-                    />
-                </div>
+            <div className="flex justify-end mb-6 px-2 md:px-6">
+                <Button
+                    variant="primary"
+                    size='sm'
+                    onClick={() => setProjectView(projectView === 'list' ? 'grid' : 'list')}
+                    icon={projectView === 'list' ? <Grip className='size-5' /> : <List className='size-5' />}
+                />
             </div>
 
 
             <div
-                className={`${viewMode === 'card' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6' : 'flex flex-col'
-                    }`}
+                className={`grid ${projectView === 'grid' ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6' : 'flex flex-col'} transition-all duration-500`}
                 onMouseMove={handleMouseMove}
                 id="container"
             >
@@ -170,31 +146,25 @@ const Projects = () => {
                         onMouseEnter={() => handleMouseEnter(project.projImg)}
                         onMouseLeave={handleMouseLeave}
                         id="project-card"
-                        className={`relative group ${viewMode === 'card'
-                            ? 'p-4 bg-gradient-to-br from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 rounded-xl border border-border dark:border-border-dark shadow-md transition-all'
-                            : 'w-full flex justify-between items-center p-4 bg-transparent border-gradient rounded-lg'
-                            }`}
+                        className={`w-full ${projectView === 'grid' ? 'flex flex-col items-start gap-2 shadow-md border border-border dark:border-border-dark' : 'flex items-center border-gradient bg-transparent'} justify-between p-4  rounded-xl relative group`}
                     >
+                        {projectView === 'grid' && (
+                            <img
+                                src={project.projImg}
+                                alt={`${project.title} preview`}
+                                className="w-full h-50 object-cover rounded-md"
+                            />
+                        )}
                         <div className="flex flex-col gap-2 z-10">
-                            <h1 className="text-md md:text-2xl font-pacifico">{project.title}</h1>
-                            <span className="text-xs md:text-sm text-accent font-bitcount dark:text-accent-dark">
+                            <h1 className="text-md md:text-2xl font-bitcount">{project.title}</h1>
+                            <span className="text-xs md:text-sm text-accent dark:text-accent-dark">
                                 {project.used}
                             </span>
                         </div>
 
-                        {viewMode === 'list' ? (
-                            <Button icon={<MoveRight className="size-5" />} iconPosition="right" variant="ghost">
-                                <span className="hidden md:block">Read More</span>
-                            </Button>
-                        ) : (
-                            <div className="mt-4">
-                                <img
-                                    src={project.projImg}
-                                    alt={project.title}
-                                    className="w-full h-40 object-cover rounded-md"
-                                />
-                            </div>
-                        )}
+                        <Button size='sm' icon={<ChevronRight className="size-5" />} iconPosition="right" variant="ghost">
+                            <span className={projectView === 'list' && 'hidden md:block'}>Read More</span>
+                        </Button>
                     </div>
                 ))}
             </div>

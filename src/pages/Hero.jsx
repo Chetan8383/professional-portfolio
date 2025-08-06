@@ -33,7 +33,6 @@ const Hero = () => {
     useGSAP(() => {
         gsap.to(bgRef.current, {
             scale: 1.2,
-            y: -100,
             ease: "power2.out",
             scrollTrigger: {
                 trigger: bgRef.current,
