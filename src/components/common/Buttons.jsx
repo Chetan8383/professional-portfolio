@@ -1,10 +1,9 @@
 import { useGSAP } from "@gsap/react";
 import gsap from 'gsap'
 import { NavLink } from "react-router-dom";
-import ScrollTrigger from "gsap/ScrollTrigger";
 
 const variants = {
-    ghost: "text-current hover:bg-current/10",
+    ghost: "text-current hover:bg-current/10  ",
 };
 
 
