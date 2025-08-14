@@ -68,6 +68,18 @@ const Projects = () => {
                 start: 'top 80%',
             }
         });
+
+        gsap.to('#project-card', {
+            y: -40, // move up
+            ease: 'none',
+
+            scrollTrigger: {
+                trigger: '#project-card',
+                start: 'top bottom',   // when bottom of viewport hits
+                end: 'bottom top',     // when top of viewport leaves
+                scrub: true,           // smooth follow
+            }
+        });
     }, []);
 
     const handleMouseMove = (e) => {

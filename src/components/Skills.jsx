@@ -108,16 +108,15 @@ const Skills = () => {
 
   return (
     <div
-      id="up-lift"
       className="space-y-4 max-w-6xl mx-auto flex flex-col md:flex-row gap-8"
     >
       {/* LEFT SIDE - Skills Section */}
-      <div className="flex-1">
+      <div className="flex-1" id="up-lift">
         <div className="device-mock-up">
           <div className="relative mx-auto border-border dark:border-gray bg-bg dark:bg-bg-dark border-4 rounded-t-xl h-[172px] max-w-full md:h-[294px] md:max-w-[512px]">
             <div
               ref={boxRef}
-              className="rounded-xl overflow-hidden h-[140px] md:h-[262px] relative"
+              className="rounded-xl overflow-hidden h-[162px] md:h-[262px] relative"
             >
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <h2 className="text-lg md:text-2xl select-none text-gray drop-shadow-lg">
