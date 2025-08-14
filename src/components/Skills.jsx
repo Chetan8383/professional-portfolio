@@ -28,6 +28,19 @@ const Skills = () => {
     const chips = Array.from(container.querySelectorAll('.skill-chip'));
     const padding = 8;
 
+    gsap.to('#up-lift', {
+      y: -40, // move up
+      ease: 'none',
+      stagger: 0.15,
+
+      scrollTrigger: {
+        trigger: '#up-lift',
+        start: 'top bottom',   // when bottom of viewport hits
+        end: 'bottom top',     // when top of viewport leaves
+        scrub: true,           // smooth follow
+      }
+    });
+
     // Initial random layout
     const layout = () => {
       const { width: cw, height: ch } = container.getBoundingClientRect();
@@ -94,32 +107,42 @@ const Skills = () => {
   }, []);
 
   return (
-    <div className="p-2 md:p-4 space-y-4 max-w-4xl mx-auto">
-      <h1 className="text-2xl text-text dark:text-text-dark font-bitcount">Skills</h1>
+    <div className="space-y-4 max-w-5xl mx-auto" id='up-lift'>
 
-      <div
-        ref={boxRef}
-        className="relative h-64 rounded-xl border border-border dark:border-border-dark 
-                   bg-bg dark:bg-bg-dark overflow-hidden shadow-md"
-      >
-        {skills.map((s, i) => (
-          <span
-            key={i}
-            className="skill-chip absolute cursor-grab active:cursor-grabbing select-none 
+
+
+      <div className='device-mock-up'>
+        <div class="relative mx-auto border-border dark:border-gray bg-bg dark:bg-bg-dark border-4  rounded-t-xl h-[172px] max-w-full md:h-[294px] md:max-w-[512px]">
+          <div ref={boxRef} class="rounded-xl overflow-hidden h-[140px] md:h-[262px] relative">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <h2 className="text-lg md:text-2xl  text-gray drop-shadow-lg">
+                What Crafts a Website
+              </h2>
+            </div>
+
+            {skills.map((s, i) => (
+              <span
+                key={i}
+                className="skill-chip absolute cursor-grab active:cursor-grabbing select-none 
                        text-white rounded-full text-sm font-medium shadow-md flex items-center gap-2"
-          >
-            <Tooltip text={s.name}>
-              <img
-                src={s.img}
-                alt={s.name}
-                className="w-15 h-15 object-contain p-1 dark:bg-bg bg-bg-dark rounded-full"
-              />
-            </Tooltip>
-          </span>
-        ))}
+              >
+                <Tooltip text={s.name}>
+                  <img
+                    src={s.img}
+                    alt={s.name}
+                    className="w-10 md:w-12 h-10 md:h-12 object-contain p-1 dark:bg-bg bg-border rounded-full"
+                  />
+                </Tooltip>
+              </span>
+            ))}
+          </div>
+        </div>
+        <div class="relative mx-auto bg-border dark:bg-gray rounded-b-xl h-4 max-w-full md:h-[42px] md:max-w-[512px]">
+          <h1 className="text-sm md:text-2xl text-text dark:text-text-dark font-bitcount text-center">Skills</h1>
+        </div>
+        <div class="relative mx-auto bg-border rounded-b-xl h-10 max-w-[83px] md:h-20 md:max-w-[142px]"></div>
       </div>
 
-      <div className='w-45 p-2'></div>
     </div>
   );
 };
