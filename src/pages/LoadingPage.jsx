@@ -21,7 +21,7 @@ const LoadingPage = ({ onComplete }) => {
 
         gsap.to(obj, {
             val: 100,
-            // duration: 5,
+            duration: 5,
             ease: 'power3.out',
             onUpdate: () => {
                 setPercentage(Math.round(obj.val));
