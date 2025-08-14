@@ -19,11 +19,14 @@
   --color-bg-dark: #000000;
   /* 0f172a */
 
-  /* Slate-900 */
+  --color-gray: #1a1a1a;
+
 
   /* Text Colors */
   --color-text: #111827;
   --color-text-dark: #f3f4f6;
+  --color-text-secondary: #6b7280;
+  --color-text-secondary-dark: #9ca3af;
 
   /* Accent Colors */
   --color-accent: #f97316;

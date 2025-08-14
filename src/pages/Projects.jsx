@@ -122,7 +122,7 @@ const Projects = () => {
 
     return (
         <div className="min-h-screen bg-bg dark:bg-bg-dark px-2 md:px-6 py-8 md:py-16 relative">
-            <h1 id="heading" className="text-3xl md:text-5xl text-text dark:text-text-dark font-bitcount text-center mb-10">
+            <h1 id="heading" className="text-3xl md:text-5xl text-text dark:text-text-dark font-bitcount text-center ">
                 Projects
             </h1>
             <div className="flex justify-end mb-6 px-2 md:px-6">
@@ -146,7 +146,7 @@ const Projects = () => {
                         onMouseEnter={() => handleMouseEnter(project.projImg)}
                         onMouseLeave={handleMouseLeave}
                         id="project-card"
-                        className={`w-full ${projectView === 'grid' ? 'flex flex-col items-start gap-2 shadow-md border border-border dark:border-border-dark' : 'flex items-center border-gradient bg-transparent'} justify-between p-4  rounded-xl relative group`}
+                        className={`w-full ${projectView === 'grid' ? 'flex flex-col items-start  gap-2 shadow-md border border-border dark:border-border-dark' : 'flex items-center border-gradient bg-transparent'} justify-between p-4  rounded-xl relative group`}
                     >
                         {projectView === 'grid' && (
                             <img
