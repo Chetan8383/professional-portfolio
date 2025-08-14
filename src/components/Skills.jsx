@@ -107,44 +107,62 @@ const Skills = () => {
   }, []);
 
   return (
-    <div className="space-y-4 max-w-5xl mx-auto" id='up-lift'>
+    <div
+      id="up-lift"
+      className="space-y-4 max-w-6xl mx-auto flex flex-col md:flex-row gap-8"
+    >
+      {/* LEFT SIDE - Skills Section */}
+      <div className="flex-1">
+        <div className="device-mock-up">
+          <div className="relative mx-auto border-border dark:border-gray bg-bg dark:bg-bg-dark border-4 rounded-t-xl h-[172px] max-w-full md:h-[294px] md:max-w-[512px]">
+            <div
+              ref={boxRef}
+              className="rounded-xl overflow-hidden h-[140px] md:h-[262px] relative"
+            >
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <h2 className="text-lg md:text-2xl select-none text-gray drop-shadow-lg">
+                  What Crafts a Website
+                </h2>
+              </div>
 
-
-
-      <div className='device-mock-up'>
-        <div class="relative mx-auto border-border dark:border-gray bg-bg dark:bg-bg-dark border-4  rounded-t-xl h-[172px] max-w-full md:h-[294px] md:max-w-[512px]">
-          <div ref={boxRef} class="rounded-xl overflow-hidden h-[140px] md:h-[262px] relative">
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <h2 className="text-lg md:text-2xl  text-gray drop-shadow-lg">
-                What Crafts a Website
-              </h2>
-            </div>
-
-            {skills.map((s, i) => (
-              <span
-                key={i}
-                className="skill-chip absolute cursor-grab active:cursor-grabbing select-none 
+              {skills.map((s, i) => (
+                <span
+                  key={i}
+                  className="skill-chip absolute cursor-grab active:cursor-grabbing select-none 
                        text-white rounded-full text-sm font-medium shadow-md flex items-center gap-2"
-              >
-                <Tooltip text={s.name}>
-                  <img
-                    src={s.img}
-                    alt={s.name}
-                    className="w-10 md:w-12 h-10 md:h-12 object-contain p-1 dark:bg-bg bg-border rounded-full"
-                  />
-                </Tooltip>
-              </span>
-            ))}
+                >
+                  <Tooltip text={s.name}>
+                    <img
+                      src={s.img}
+                      alt={s.name}
+                      className="w-10 md:w-12 h-10 md:h-12 object-contain p-1 dark:bg-bg bg-border rounded-full"
+                    />
+                  </Tooltip>
+                </span>
+              ))}
+            </div>
           </div>
+          <div className="relative mx-auto bg-border dark:bg-gray rounded-b-xl h-4 max-w-full md:h-[42px] md:max-w-[512px]">
+            <h1 className="text-sm md:text-2xl text-text dark:text-text-dark font-bitcount text-center">
+              Skills
+            </h1>
+          </div>
+          <div className="relative mx-auto bg-border dark:bg-gray rounded-b-xl h-10 max-w-[83px] md:h-20 md:max-w-[142px]"></div>
         </div>
-        <div class="relative mx-auto bg-border dark:bg-gray rounded-b-xl h-4 max-w-full md:h-[42px] md:max-w-[512px]">
-          <h1 className="text-sm md:text-2xl text-text dark:text-text-dark font-bitcount text-center">Skills</h1>
-        </div>
-        <div class="relative mx-auto bg-border rounded-b-xl h-10 max-w-[83px] md:h-20 md:max-w-[142px]"></div>
       </div>
 
+      {/* RIGHT SIDE - Your Custom Content */}
+      <div className="flex-1 flex items-center justify-center">
+        {/* Replace this with whatever you want */}
+        <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg w-full h-full flex items-center justify-center">
+          <p className="text-lg text-gray-800 dark:text-gray-200">
+            TODO
+          </p>
+        </div>
+      </div>
     </div>
   );
+
 };
 
 export default Skills;
