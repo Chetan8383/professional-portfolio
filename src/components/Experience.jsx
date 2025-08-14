@@ -15,24 +15,6 @@ const experiences = [
 
 const Experience = () => {
     useGSAP(() => {
-        // Animate heading
-        const split = new SplitText('#heading', { type: 'chars' });
-        gsap.from(split.chars, {
-            opacity: 0,
-            y: 50,
-            scale: 0.8,
-            rotateX: 45,
-            transformOrigin: 'top center',
-            ease: 'back.out(1.7)',
-            stagger: 0.05,
-            duration: 1.2,
-            scrollTrigger: {
-                trigger: '#heading',
-                start: 'top 80%',
-                toggleActions: 'play none none none',
-            }
-        });
-
         // Animate cards
         // Initial fade + slide-in when appearing
         gsap.from('.exp-card', {
@@ -77,15 +59,15 @@ const Experience = () => {
     }, []);
 
     return (
-        <div className="p-4 space-y-4 max-w-4xl mx-auto">
-            <h1 id="heading" className="text-2xl font-bold text-text dark:text-text-dark">
+        <div className="p-2 md:p-4 space-y-4 max-w-4xl mx-auto">
+            <h1 className="exp-card text-2xl text-text dark:text-text-dark mb-3 font-bitcount">
                 Experience
             </h1>
 
             {experiences.map((exp, index) => (
                 <div
                     key={index}
-                    className="exp-card flex justify-between items-center p-4 border border-border dark:border-border-dark rounded-xl"
+                    className="exp-card shadow-md flex flex-col md:flex-row justify-between items-start gap-2 md:items-center p-4 border border-border dark:border-border-dark rounded-xl"
                 >
                     <div>
                         <h1 className="text-text-secondary dark:text-text-secondary-dark font-bitcount">

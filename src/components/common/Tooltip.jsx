@@ -45,7 +45,7 @@ const Tooltip = ({ children, text, position = "top", arrow = true }) => {
             {children}
             <div
                 ref={tooltipRef}
-                className={`absolute z-9999 hidden group-hover:block bg-bg-dark dark:bg-bg text-text-dark dark:text-text font-pacifico
+                className={`absolute z-9999 hidden group-hover:block bg-bg-dark dark:bg-bg text-text-dark dark:text-text
           text-xs rounded px-2 py-1 shadow-md transition-opacity duration-200
           ${positionClasses[position]} max-w-[200px] break-words whitespace-normal`}
                 style={{ pointerEvents: 'none' }}

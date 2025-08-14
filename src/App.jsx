@@ -21,7 +21,7 @@ function App() {
 
 
       <div>
-        <section id="Landing Page">
+        <section id="Home">
           <Hero />
         </section>
 
@@ -29,7 +29,7 @@ function App() {
           <Projects />
         </section>
 
-        <section id="Work Experience">
+        <section id="about">
           <About />
         </section>
 

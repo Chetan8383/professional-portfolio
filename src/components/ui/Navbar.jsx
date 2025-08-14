@@ -14,7 +14,7 @@ const list = [
         icon: <Projector className='size-4 lg:size-5 3xl:size-6' />,
     },
     {
-        title: 'Work Experience',
+        title: 'about',
         icon: <Briefcase className='size-4 lg:size-5 3xl:size-6' />,
     },
     {
@@ -52,9 +52,9 @@ const Navbar = () => {
     return (
         <nav
             ref={navRef}
-            className="fixed bottom-5 left-1/2 -translate-x-1/2 z-999 backdrop-blur-lg text-text dark:text-text-dark p-1 rounded-full border border-border dark:border-border-dark origin-bottom scale-x-0"
+            className="fixed bottom-5 left-1/2 -translate-x-1/2 z-999999 backdrop-blur-lg text-text dark:text-text-dark p-1 rounded-full border border-border dark:border-border-dark origin-bottom scale-x-0"
         >
-            <div className="flex gap-2 !text-center ">
+            <div className="flex gap-2 !text-center">
                 {list.map((item, index) => (
                     <div onClick={() => handleScroll(item.title)}
                         className="flex gap-2 cursor-pointer items-center whitespace-nowrap text-xs bg-primary-dark dark:bg-primary text-text-dark dark:text-text p-2 rounded-full hover:-translate-y-1 hover:scale-105 duration-200 ease-in-out">
