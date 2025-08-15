@@ -1,7 +1,6 @@
 import React from 'react';
 import Experience from '../components/Experience';
-import Skills from '../components/Skills';
-import Education from '../components/Education';
+import Skills from '../components/Skills';;
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 
@@ -14,31 +13,25 @@ const About = () => {
 
       scrollTrigger: {
         trigger: '#up-lift',
-        start: 'top bottom',   // when bottom of viewport hits
-        end: 'bottom top',     // when top of viewport leaves
-        scrub: true,           // smooth follow
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true,
       }
     });
   })
 
 
   return (
-    <section className="p-4 py-10 space-y-20">
+    <section className="p-4 py-10 space-y-10">
       <div className='text-center mb-10' id='up-lift'>
-        <h1 className="text-3xl md:text-5xl text-text dark:text-text-dark font-bitcount text-center ">About Me</h1>
+        <h1 className="text-3xl md:text-7xl text-text dark:text-text-dark font-bitcount text-center ">About Me</h1>
         <p className="text-center text-text-secondary dark:text-text-secondary-dark font-pacifico">
           I’m a passionate developer who loves building clean, functional, and user-friendly web applications.
         </p>
       </div>
 
-      {/* Experience */}
-      <Experience />
-
-      {/* Skills */}
       <Skills />
-
-      {/* Education */}
-      <Education />
+      <Experience />
     </section>
   );
 };

@@ -4,11 +4,12 @@ import { NavLink } from "react-router-dom";
 
 const variants = {
     ghost: "text-current hover:bg-current/10",
-    primary: "bg-bg-dark/10 dark:bg-bg/10",
+    primary: "bg-bg-dark/10 dark:bg-bg/10 hover:bg-bg-dark/20 hover:dark:bg-bg/20 !rounded-full border border-border dark:border-border-dark",
+    white: "bg-bg dark:bg-bg/10",
 };
 
 const sizes = {
-    sm: "text-sm px-3 py-1.5",
+    sm: "text-xs px-3 py-1.5",
     md: "text-xs md:text-sm lg:text-base px-4 py-2",
     lg: "text-base md:text-lg px-6 py-3",
 };
@@ -44,7 +45,7 @@ const Button = ({
     });
 
     const classes = `
-        inline-flex items-center transition-all duration-200 cursor-pointer rounded-md
+        inline-flex items-center transition-all duration-300 cursor-pointer rounded-md 
         ${variants[variant]} ${sizes[size]} ${className}
         ${hasText ? "gap-2" : "justify-center w-10 h-10"} 
     `;

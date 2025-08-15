@@ -14,7 +14,7 @@ const list = [
         icon: <Projector className='size-4 lg:size-5 3xl:size-6' />,
     },
     {
-        title: 'about',
+        title: 'About',
         icon: <Briefcase className='size-4 lg:size-5 3xl:size-6' />,
     },
     {

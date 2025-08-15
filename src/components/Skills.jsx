@@ -3,10 +3,13 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import Draggable from 'gsap/Draggable';
 import InertiaPlugin from 'gsap/InertiaPlugin';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Tooltip from './common/Tooltip';
+import Education from './Education';
 
-gsap.registerPlugin(Draggable, InertiaPlugin);
+gsap.registerPlugin(Draggable, InertiaPlugin, ScrollTrigger);
 
+// skills array stays here
 const skills = [
   { name: 'React.js', img: '/skills/react.png' },
   { name: 'Tailwind CSS', img: '/skills/tailwind.png' },
@@ -29,19 +32,17 @@ const Skills = () => {
     const padding = 8;
 
     gsap.to('#up-lift', {
-      y: -40, // move up
+      y: -40,
       ease: 'none',
       stagger: 0.15,
-
       scrollTrigger: {
         trigger: '#up-lift',
-        start: 'top bottom',   // when bottom of viewport hits
-        end: 'bottom top',     // when top of viewport leaves
-        scrub: true,           // smooth follow
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true,
       }
     });
 
-    // Initial random layout
     const layout = () => {
       const { width: cw, height: ch } = container.getBoundingClientRect();
       chips.forEach((chip, i) => {
@@ -57,7 +58,6 @@ const Skills = () => {
 
     layout();
 
-    // Floating animation
     const floatChip = (chip) => {
       const randomX = `+=${gsap.utils.random(-30, 30)}`;
       const randomY = `+=${gsap.utils.random(-30, 30)}`;
@@ -77,24 +77,22 @@ const Skills = () => {
     chips.forEach((chip) => {
       floatChip(chip);
 
-      // Make them draggable
       Draggable.create(chip, {
         type: 'x,y',
         bounds: container,
         inertia: true,
         onPress() {
-          gsap.killTweensOf(chip); // stop floating while dragging
+          gsap.killTweensOf(chip);
           gsap.to(chip, { scale: 1.06, duration: 0.15 });
           gsap.set(chip, { zIndex: 9999 });
         },
         onRelease() {
           gsap.to(chip, { scale: 1, duration: 0.15 });
-          floatChip(chip); // resume floating
+          floatChip(chip);
         }
       });
     });
 
-    // Re-apply bounds on resize
     const ro = new ResizeObserver(() => {
       chips.forEach((chip) => {
         const drag = Draggable.get(chip);
@@ -107,17 +105,12 @@ const Skills = () => {
   }, []);
 
   return (
-    <div
-      className="space-y-4 max-w-6xl mx-auto flex flex-col md:flex-row gap-8"
-    >
+    <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8" >
       {/* LEFT SIDE - Skills Section */}
-      <div className="flex-1" id="up-lift">
+      <div className="flex-1 md:sticky md:top-20 self-start w-full" >
         <div className="device-mock-up">
           <div className="relative mx-auto border-border dark:border-gray bg-bg dark:bg-bg-dark border-4 rounded-t-xl h-[172px] max-w-full md:h-[294px] md:max-w-[512px]">
-            <div
-              ref={boxRef}
-              className="rounded-xl overflow-hidden h-[162px] md:h-[262px] relative"
-            >
+            <div ref={boxRef} className="rounded-xl overflow-hidden h-full relative">
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <h2 className="text-lg md:text-2xl select-none text-gray drop-shadow-lg">
                   What Crafts a Website
@@ -127,8 +120,7 @@ const Skills = () => {
               {skills.map((s, i) => (
                 <span
                   key={i}
-                  className="skill-chip absolute cursor-grab active:cursor-grabbing select-none 
-                       text-white rounded-full text-sm font-medium shadow-md flex items-center gap-2"
+                  className="skill-chip absolute cursor-grab active:cursor-grabbing select-none text-white rounded-full text-sm font-medium shadow-md flex items-center gap-2"
                 >
                   <Tooltip text={s.name}>
                     <img
@@ -141,8 +133,8 @@ const Skills = () => {
               ))}
             </div>
           </div>
-          <div className="relative mx-auto bg-border dark:bg-gray rounded-b-xl h-4 max-w-full md:h-[42px] md:max-w-[512px]">
-            <h1 className="text-sm md:text-2xl text-text dark:text-text-dark font-bitcount text-center">
+          <div className="relative mx-auto bg-border dark:bg-gray rounded-b-xl h-6 max-w-full md:h-[42px] md:max-w-[512px]">
+            <h1 className="text-sm md:text-2xl text-text dark:text-text-dark font-pacifico font-bold tracking-widest text-center">
               Skills
             </h1>
           </div>
@@ -150,18 +142,12 @@ const Skills = () => {
         </div>
       </div>
 
-      {/* RIGHT SIDE - Your Custom Content */}
-      <div className="flex-1 flex items-center justify-center">
-        {/* Replace this with whatever you want */}
-        <div className="bg-gray-200 dark:bg-gray-800 p-6 rounded-lg w-full h-full flex items-center justify-center">
-          <p className="text-lg text-gray-800 dark:text-gray-200">
-            TODO
-          </p>
-        </div>
+      {/* RIGHT SIDE - Education Section */}
+      <div className="flex-1" >
+        <Education />
       </div>
     </div>
   );
-
 };
 
 export default Skills;

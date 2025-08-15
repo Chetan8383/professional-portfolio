@@ -8,6 +8,8 @@ import About from "./pages/About";
 import Hero from "./pages/Hero";
 import Projects from "./pages/Projects";
 import LoadingPage from "./pages/LoadingPage";
+import Contact from './pages/Contact';
+import CopyRight from './components/CopyRight';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -15,17 +17,14 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // ✅ Initialize Lenis
     const lenis = new Lenis({
-      lerp: 0.1,          // smoothness (0 < lerp < 1)
-      duration: 1.2,      // scroll duration in seconds
-      smoothTouch: true,  // smooth on touch devices
+      lerp: 0.5,
+      duration: 1.2,
+      smoothTouch: true,
     });
 
-    // ✅ Tell ScrollTrigger to update on Lenis scroll
     lenis.on('scroll', ScrollTrigger.update);
 
-    // ✅ Create RAF loop
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -33,7 +32,7 @@ function App() {
     requestAnimationFrame(raf);
 
     return () => {
-      lenis.destroy(); // cleanup
+      lenis.destroy();
     };
   }, []);
 
@@ -54,14 +53,16 @@ function App() {
             <Projects />
           </section>
 
-          <section id="about">
+          <section id="About">
             <About />
           </section>
 
           <section id="Contact Me">
-            <div>Contact Section</div>
+            <Contact />
           </section>
         </div>
+
+        <CopyRight />
       </div>
     )
   );

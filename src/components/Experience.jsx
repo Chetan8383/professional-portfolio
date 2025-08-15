@@ -15,52 +15,50 @@ const experiences = [
 
 const Experience = () => {
     useGSAP(() => {
-        // Animate cards
-        // Initial fade + slide-in when appearing
+        // Fade & scale in
         gsap.from('.exp-card', {
             opacity: 0,
-            y: 40,
+            y: 50,
             scale: 0.95,
-            duration: 0.8,
+            duration: 1,
             ease: 'power3.out',
-            stagger: 0.15,
+            stagger: 0.2,
             scrollTrigger: {
                 trigger: '.exp-card',
-                start: 'top 90%',
-                toggleActions: 'play none none none'
-            }
+                start: 'top 85%',
+                toggleActions: 'play none none none',
+            },
         });
 
-        // Uplift effect while scrolling
-        gsap.to('.exp-card', {
-            y: -40, // move up
-            ease: 'none',
-            stagger: 0.15,
-
-            scrollTrigger: {
-                trigger: '.exp-card',
-                start: 'top bottom',   // when bottom of viewport hits
-                end: 'bottom top',     // when top of viewport leaves
-                scrub: true,           // smooth follow
-            }
+        // Smooth parallax lift
+        gsap.utils.toArray('.exp-card').forEach((card, i) => {
+            gsap.to(card, {
+                y: -30,
+                ease: 'power1.out',
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: 0.5, // half-second smoothing
+                },
+            });
         });
-
 
         // Hover animation for buttons
         const buttons = document.querySelectorAll('.exp-btn');
-        buttons.forEach(btn => {
+        buttons.forEach((btn) => {
             btn.addEventListener('mouseenter', () => {
-                gsap.to(btn, { scale: 1.1, duration: 0.2, ease: 'power1.out' });
+                gsap.to(btn, { scale: 1.08, duration: 0.25, ease: 'power2.out' });
             });
             btn.addEventListener('mouseleave', () => {
-                gsap.to(btn, { scale: 1, duration: 0.2, ease: 'power1.inOut' });
+                gsap.to(btn, { scale: 1, duration: 0.25, ease: 'power2.inOut' });
             });
         });
     }, []);
 
     return (
-        <div className=" space-y-4 max-w-6xl mx-auto">
-            <h1 className="exp-card text-2xl text-text dark:text-text-dark mb-3 font-bitcount">
+        <div className="space-y-4 max-w-6xl mx-auto">
+            <h1 className="exp-card text-4xl text-text dark:text-text-dark mb-3 font-pacifico tracking-widest">
                 Experience
             </h1>
 
