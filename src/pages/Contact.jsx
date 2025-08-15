@@ -32,8 +32,7 @@ const Contact = () => {
     return (
         <div className="
       relative min-h-screen flex items-center justify-center overflow-hidden
-      bg-gradient-to-br from-blue-900 via-purple-900 to-black text-white
-      dark:from-gray-900 dark:via-gray-800 dark:to-black
+      text-text dark:text-text-dark
     ">
             {/* Animated Background */}
             <div ref={bgRef} className="absolute inset-0 overflow-hidden">
@@ -61,7 +60,7 @@ const Contact = () => {
                 <h2 className="text-3xl  mb-6 text-center font-bitcount">Contact Me</h2>
                 <form ref={formRef} className="space-y-4">
                     <div>
-                        <label className="block mb-1 font-medium text-white dark:text-gray-200">Name</label>
+                        <label className="block mb-1 font-medium text-text dark:text-text-dark">Name</label>
                         <input
                             type="text"
                             className="
@@ -74,7 +73,7 @@ const Contact = () => {
                         />
                     </div>
                     <div>
-                        <label className="block mb-1 font-medium text-white dark:text-gray-200">Email</label>
+                        <label className="block mb-1 font-medium text-text dark:text-text-dark">Email</label>
                         <input
                             type="email"
                             className="
@@ -87,7 +86,7 @@ const Contact = () => {
                         />
                     </div>
                     <div>
-                        <label className="block mb-1 font-medium text-white dark:text-gray-200">Message</label>
+                        <label className="block mb-1 font-medium text-text dark:text-text-dark">Message</label>
                         <textarea
                             rows="4"
                             className="
@@ -102,7 +101,7 @@ const Contact = () => {
                     <button
                         type="submit"
                         className="
-              w-full py-2 px-4 rounded-lg font-semibold text-white transition
+              w-full py-2 px-4 rounded-lg font-semibold text-text dark:text-text-dark transition
               bg-purple-500 hover:bg-purple-600
               dark:bg-purple-600 dark:hover:bg-purple-700
             "
