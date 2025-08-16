@@ -21,6 +21,7 @@ const skills = [
   { name: 'HTML', img: '/skills/html.png' },
   { name: 'CSS', img: '/skills/css.png' },
   { name: 'Javascript', img: '/skills/javascript.png' },
+  { name: 'GSAP', img:'/skills/gsap.png' }
 ];
 
 const Skills = () => {
@@ -105,7 +106,7 @@ const Skills = () => {
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8" >
+    <div className=" flex flex-col md:flex-row gap-8" >
       {/* LEFT SIDE - Skills Section */}
       <div className="flex-1 md:sticky md:top-20 self-start w-full" >
         <div className="device-mock-up">

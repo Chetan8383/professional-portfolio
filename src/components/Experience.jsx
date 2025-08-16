@@ -57,7 +57,7 @@ const Experience = () => {
     }, []);
 
     return (
-        <div className="space-y-4 max-w-6xl mx-auto">
+        <div className="space-y-4 w-full">
             <h1 className="exp-card text-4xl text-text dark:text-text-dark mb-3 font-pacifico tracking-widest">
                 Experience
             </h1>

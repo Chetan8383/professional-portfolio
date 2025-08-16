@@ -40,7 +40,7 @@ const Education = () => {
         >
           <h3 className="text-xl font-semibold">{ed.degree}</h3>
           <p>{ed.university}</p>
-          <small className="font-bitcount">{ed.duration}</small>
+          <button className="exp-btn mt-2 bg-primary-dark dark:bg-primary text-text-dark dark:text-text px-4 py-2 text-xs rounded-full">{ed.duration}</button>
         </div>
       ))}
     </section>

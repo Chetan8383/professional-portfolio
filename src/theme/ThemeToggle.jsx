@@ -77,7 +77,7 @@ const ThemeToggle = () => {
 
                 <div
                     ref={switchRef}
-                    className="relative w-[27px] h-[63px] bg-bg-dark/10 peer-checked:bg-bg/10 rounded-full 
+                    className="relative w-[27px] h-[63px] bg-bg-dark/10  peer-checked:bg-bg/10 rounded-full 
         after:absolute after:content-[''] after:w-[21px] after:h-[21px]
         peer-checked:after:from-bg-dark peer-checked:after:to-bg-dark
         after:rounded-full after:left-[3px] after:top-[3px] active:after:h-[24px]

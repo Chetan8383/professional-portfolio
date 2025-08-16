@@ -57,6 +57,7 @@ const Navbar = () => {
             <div className="flex gap-2 !text-center">
                 {list.map((item, index) => (
                     <div onClick={() => handleScroll(item.title)}
+                    key={index}
                         className="flex gap-2 cursor-pointer items-center whitespace-nowrap text-xs bg-primary-dark dark:bg-primary text-text-dark dark:text-text p-2 rounded-full hover:-translate-y-1 hover:scale-105 duration-200 ease-in-out">
                         {item.icon} 
                         <span className='hidden md:block'>{item.title}</span>
