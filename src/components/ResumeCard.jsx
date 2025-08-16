@@ -17,25 +17,20 @@ const ResumeCard = () => {
             }
         });
 
-        let mm = gsap.matchMedia();
-
-        mm.add("(min-width: 768px)", () => {
-            gsap.fromTo('#resume-card',
-                { x: 400 },   // start off-screen to right
-                {
-                    opacity: 1,
-                    x: 0,
-                    ease: 'linear',
-                    scrollTrigger: {
-                        trigger: '#resume-card',
-                        start: 'top 90%',
-                        end: 'bottom 90%',
-                        scrub: true,
-                    }
+        gsap.fromTo('#resume-card',
+            { x: 400 },   // start off-screen to right
+            {
+                opacity: 1,
+                x: 0,
+                ease: 'linear',
+                scrollTrigger: {
+                    trigger: '#resume-card',
+                    start: 'top 90%',
+                    end: 'bottom 90%',
+                    scrub: true,
                 }
-            );
-        });
-
+            }
+        );
     }, []);
 
     const handleDownload = () => {

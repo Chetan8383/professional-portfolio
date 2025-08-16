@@ -42,7 +42,7 @@ const About = () => {
 
 
   return (
-    <section className="p-4 py-10 space-y-10">
+    <section className="p-4 py-10 space-y-10 ">
       <div className='text-center mb-10' id='up-lift'>
         <h1 id="about-heading" className="text-3xl md:text-5xl text-text dark:text-text-dark font-bitcount text-center">
           About Me
