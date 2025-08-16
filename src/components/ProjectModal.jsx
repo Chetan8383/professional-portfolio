@@ -51,7 +51,7 @@ const ProjectModal = ({ project, onClose }) => {
         >
             <div
                 ref={modalRef}
-                className="relative bg-white dark:bg-gray-900 rounded-xl max-w-2xl w-full p-2 shadow-2xl"
+                className="relative bg-bg dark:bg-bg-dark rounded-xl max-w-2xl w-full p-2 shadow-2xl"
             >
                 {/* Close Button */}
                 <button
@@ -70,10 +70,10 @@ const ProjectModal = ({ project, onClose }) => {
                 <div className="p-2">
                     <h2 className="text-2xl font-semibold font-bitcount text-accent">{project.title}</h2>
                     <p className="text-xs md:text-sm text-text dark:text-text-dark ">
-                        <span className="font-semibold text-accent">Technologies:</span> {project.used}
+                        <span className="font-light text-accent ">Technologies:</span> {project.used}
                     </p>
                     <p className="text-xs md:text-sm">
-                        <span className="font-semibold text-accent">Description:</span> {project.description}
+                        <span className="font-light text-accent">Description:</span> {project.description}
                     </p>
 
                     <a

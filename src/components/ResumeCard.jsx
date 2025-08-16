@@ -17,21 +17,25 @@ const ResumeCard = () => {
             }
         });
 
-        // Card animation: fade in + slide from right
-        gsap.fromTo('#resume-card',
-            { x: 400 },   // start off-screen to right
-            {
-                opacity: 1,
-                x: 0,
-                ease: 'linear',  // keep smooth with scroll
-                scrollTrigger: {
-                    trigger: '#resume-card',
-                    start: 'top 90%',    // starts earlier
-                    end: 'bottom 90%',   // ends later → slower motion
-                    scrub: true,
+        let mm = gsap.matchMedia();
+
+        mm.add("(min-width: 768px)", () => {
+            gsap.fromTo('#resume-card',
+                { x: 400 },   // start off-screen to right
+                {
+                    opacity: 1,
+                    x: 0,
+                    ease: 'linear',
+                    scrollTrigger: {
+                        trigger: '#resume-card',
+                        start: 'top 90%',
+                        end: 'bottom 90%',
+                        scrub: true,
+                    }
                 }
-            }
-        );
+            );
+        });
+
     }, []);
 
     const handleDownload = () => {

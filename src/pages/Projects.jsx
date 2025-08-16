@@ -186,6 +186,7 @@ const Projects = () => {
                                 />
                             </div>
                         )}
+
                         <div className={`flex flex-col gap-2 z-10 ${projectView === 'grid' && 'px-4'}`}>
                             <h1 className="text-md md:text-xl ">{project.title}</h1>
                             {projectView === 'list' &&
@@ -193,17 +194,17 @@ const Projects = () => {
                                     {project.used}
                                 </span>}
                         </div>
+
                         <Button
                             className={`${projectView === 'grid' && 'mx-4'}`}
                             size='sm'
                             variant="primary"
                             icon={<Lightbulb className="size-4" />}
                             iconPosition="right"
-                            onClick={() => setSelectedProject(project)} 
+                            onClick={() => setSelectedProject(project)}
                         >
-                            <span className={projectView === 'list' && 'hidden md:block'}>
-                                Read More
-                            </span>
+
+                            Read More
                         </Button>
                     </div>
                 ))}

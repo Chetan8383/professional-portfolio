@@ -21,7 +21,9 @@ const skills = [
   { name: 'HTML', img: '/skills/html.png' },
   { name: 'CSS', img: '/skills/css.png' },
   { name: 'Javascript', img: '/skills/javascript.png' },
-  { name: 'GSAP', img:'/skills/gsap.png' }
+  { name: 'GSAP', img: '/skills/gsap.png' },
+  { name: 'Github', img: '/skills/github.png' },
+  { name: 'Figma', img: '/skills/figma.png' },
 ];
 
 const Skills = () => {
