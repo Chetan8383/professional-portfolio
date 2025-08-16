@@ -122,7 +122,7 @@ const Contact = () => {
   });
 
   return (
-    <div className="bg-bg dark:bg-bg-dark text-text dark:text-text-dark mb-10 ">
+    <div className="bg-bg dark:bg-bg-dark text-text dark:text-text-dark mb-10 overflow-hidden">
       <h1 id="contact-heading" className="font-bitcount text-5xl text-center">
         Contact Me
       </h1>
@@ -130,7 +130,7 @@ const Contact = () => {
 
       <div className="max-w-5xl mx-auto  flex-col md:flex-row p-4 flex gap-4" >
         {/* left */}
-        <div ref={leftRef} className="w-full md:w-1/2 flex p-4 items-end justify-center rounded-3xl bg-cover bg-center bg-[url('/contact-bg.jpg')] dark:bg-[url('/contact-bg-dark.jpg')]">
+        <div ref={leftRef} className="w-full md:w-1/2 flex p-4 items-end justify-center rounded-3xl bg-cover bg-center bg-[url('/contact-bg.jpg')] dark:bg-[url('/contact-bg-dark.jpg')] shadow-md">
 
           <div className='backdrop-blur-2xl p-2 w-full text-sm rounded-2xl bg-bg/5 dark:bg-bg-dark/5 border border-border dark:border-border-dark text-text dark:text-text-dark'>
             <h1 className='tracking-widest'>Chetan Mehra </h1>
