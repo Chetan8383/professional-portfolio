@@ -4,22 +4,67 @@ import { ChevronRight, Grip, Lightbulb, List } from 'lucide-react';
 import Button from '../components/common/Buttons';
 import { useGSAP } from '@gsap/react';
 import SplitText from 'gsap/SplitText';
+import ProjectModal from '../components/ProjectModal';
 
 const projects = [
-    { title: 'OtakuMart', used: 'ReactJs, TailwindCSS, Zustand, cloudinary, ExpressJs, NodeJs', projImg: '/projects/otakumart.png' },
-    { title: 'ChatterBox', used: 'ReactJs, Tailwind, Daisy UI, lucide, socket.io, bcryptjs, cloudinary, jsonwebtoken, Mongoose, ExpressJs', projImg: '/projects/chatterbox.png' },
-    { title: 'World Artlas', used: 'ReactJs, CSS', projImg: '/projects/world-Atlas.png' },
-    { title: 'FestLive', used: 'HTML, CSS, Bootstrap, @mediaquery', projImg: '/projects/festival.png' },
-    { title: 'Consaltancy Site', used: 'HTML, CSS, Bootstrap, @mediaquery', projImg: '/projects/consaltansy.png' },
-    { title: 'Lakshaya Computer Institute', used: 'HTML, CSS, Bootstrap, Swiperjs, AOS, Momento360', projImg: '/projects/lakshaya-CI.png' },
-    { title: 'PeakTrip', used: 'HTML, CSS, @mediaquery', projImg: '/projects/travel.png' },
+    {
+        title: 'OtakuMart',
+        used: 'ReactJs, TailwindCSS, Zustand, Cloudinary, ExpressJs, NodeJs',
+        projImg: '/projects/otakumart.png',
+        description: 'An anime and manga-themed e-commerce platform where users can browse, search, and purchase products with a smooth shopping experience.',
+        url: 'https://otakumart.example.com'
+    },
+    {
+        title: 'ChatterBox',
+        used: 'ReactJs, Tailwind, Daisy UI, Lucide, Socket.io, Bcryptjs, Cloudinary, JWT, Mongoose, ExpressJs',
+        projImg: '/projects/chatterbox.png',
+        description: 'A real-time chat application supporting authentication, group chats, private messaging, and media uploads.',
+        url: 'https://chatterbox.example.com'
+    },
+    {
+        title: 'World Atlas',
+        used: 'ReactJs, CSS',
+        projImg: '/projects/world-Atlas.png',
+        description: 'An interactive world atlas with country details, map visuals, and quick search features.',
+        url: 'https://worldatlas.example.com'
+    },
+    {
+        title: 'FestLive',
+        used: 'HTML, CSS, Bootstrap, @mediaquery',
+        projImg: '/projects/festival.png',
+        description: 'A landing page for a cultural festival showcasing event details, schedules, and highlights.',
+        url: 'https://festlive.example.com'
+    },
+    {
+        title: 'Consultancy Site',
+        used: 'HTML, CSS, Bootstrap, @mediaquery',
+        projImg: '/projects/consaltansy.png',
+        description: 'A responsive business consultancy website providing services overview and client testimonials.',
+        url: 'https://consultancy.example.com'
+    },
+    {
+        title: 'Lakshaya Computer Institute',
+        used: 'HTML, CSS, Bootstrap, Swiperjs, AOS, Momento360',
+        projImg: '/projects/lakshaya-CI.png',
+        description: 'An educational institute website with interactive galleries, animated sections, and 360° views.',
+        url: 'https://lakshaya-ci.example.com'
+    },
+    {
+        title: 'PeakTrip',
+        used: 'HTML, CSS, @mediaquery',
+        projImg: '/projects/travel.png',
+        description: 'A travel agency landing page featuring destinations, packages, and responsive design.',
+        url: 'https://peaktrip.example.com'
+    },
 ];
+
 
 const Projects = () => {
     const imageRef = useRef(null);
     const [hoveredImg, setHoveredImg] = useState(null);
     const [loadedImages, setLoadedImages] = useState({});
     const [projectView, setProjectView] = useState('grid');
+    const [selectedProject, setSelectedProject] = useState(null);
 
     // ✅ Preload all images
     useEffect(() => {
@@ -148,8 +193,17 @@ const Projects = () => {
                                     {project.used}
                                 </span>}
                         </div>
-                        <Button className={` ${projectView === 'grid' && 'mx-4'}`} size='sm' variant="primary" icon={<Lightbulb className="size-4" />} iconPosition="right" >
-                            <span className={projectView === 'list' && 'hidden md:block'}>Read More</span>
+                        <Button
+                            className={`${projectView === 'grid' && 'mx-4'}`}
+                            size='sm'
+                            variant="primary"
+                            icon={<Lightbulb className="size-4" />}
+                            iconPosition="right"
+                            onClick={() => setSelectedProject(project)} 
+                        >
+                            <span className={projectView === 'list' && 'hidden md:block'}>
+                                Read More
+                            </span>
                         </Button>
                     </div>
                 ))}
@@ -175,6 +229,13 @@ const Projects = () => {
                     )
                 )}
             </div>
+
+            {/* Modal */}
+            <ProjectModal
+                project={selectedProject}
+                onClose={() => setSelectedProject(null)}
+            />
+
         </div>
     );
 };
