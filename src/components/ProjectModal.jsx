@@ -10,7 +10,6 @@ const ProjectModal = ({ project, onClose }) => {
 
     useEffect(() => {
         if (project) {
-            // Animate overlay and modal in
             gsap.fromTo(
                 overlayRef.current,
                 { opacity: 0 },
@@ -47,7 +46,7 @@ const ProjectModal = ({ project, onClose }) => {
     return (
         <div
             ref={overlayRef}
-            className="fixed inset-0 bg-black/60 flex items-center justify-center z-999999"
+            className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center z-999999"
         >
             <div
                 ref={modalRef}
@@ -56,9 +55,9 @@ const ProjectModal = ({ project, onClose }) => {
                 {/* Close Button */}
                 <button
                     onClick={handleClose}
-                    className="absolute -top-8 right-0 text-text-dark dark:text-text-dark hover:text-text dark:hover:text-text-dark cursor-pointer"
+                    className="absolute -top-8 right-0 bg-gray rounded-full p-1 text-text-dark dark:text-text-dark hover:scale-110 duration-150 cursor-pointer"
                 >
-                    <X className="size-6" />
+                    <X className="size-5" />
                 </button>
 
                 {/* Modal Content */}
