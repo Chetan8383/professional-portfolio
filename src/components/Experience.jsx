@@ -3,6 +3,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import SplitText from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Button from './common/Buttons';
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
@@ -73,9 +74,9 @@ const Experience = () => {
                         </h1>
                         <p className="text-text dark:text-text-dark">{exp.role}</p>
                     </div>
-                    <button className="exp-btn bg-primary-dark dark:bg-primary text-text-dark dark:text-text px-4 py-2 text-xs rounded-full">
+                    <Button className="exp-btn" variant='inverse' size='sm'>
                         {exp.duration}
-                    </button>
+                    </Button>
                 </div>
             ))}
         </div>

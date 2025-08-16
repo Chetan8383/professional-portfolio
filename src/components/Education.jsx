@@ -2,6 +2,7 @@ import React from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import Button from './common/Buttons';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,7 +41,7 @@ const Education = () => {
         >
           <h3 className="text-xl font-semibold">{ed.degree}</h3>
           <p>{ed.university}</p>
-          <button className="exp-btn mt-2 bg-primary-dark dark:bg-primary text-text-dark dark:text-text px-4 py-2 text-xs rounded-full">{ed.duration}</button>
+          <Button className="exp-btn mt-2" variant='inverse' size='sm'>{ed.duration}</Button>
         </div>
       ))}
     </section>

@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
-import { ChevronRight, Grip, Lightbulb, List } from 'lucide-react';
+import { Grip, Lightbulb, List } from 'lucide-react';
 import Button from '../components/common/Buttons';
 import { useGSAP } from '@gsap/react';
 import SplitText from 'gsap/SplitText';
@@ -12,49 +12,49 @@ const projects = [
         used: 'ReactJs, TailwindCSS, Zustand, Cloudinary, ExpressJs, NodeJs',
         projImg: '/projects/otakumart.png',
         description: 'An anime and manga-themed e-commerce platform where users can browse, search, and purchase products with a smooth shopping experience.',
-        url: 'https://otakumart.example.com'
+        url: 'https://otakumart-frontend.vercel.app/'
     },
     {
         title: 'ChatterBox',
         used: 'ReactJs, Tailwind, Daisy UI, Lucide, Socket.io, Bcryptjs, Cloudinary, JWT, Mongoose, ExpressJs',
         projImg: '/projects/chatterbox.png',
         description: 'A real-time chat application supporting authentication, group chats, private messaging, and media uploads.',
-        url: 'https://chatterbox.example.com'
+        url: 'https://chatterbox-rqxn.onrender.com/'
     },
     {
         title: 'World Atlas',
         used: 'ReactJs, CSS',
         projImg: '/projects/world-Atlas.png',
         description: 'An interactive world atlas with country details, map visuals, and quick search features.',
-        url: 'https://worldatlas.example.com'
+        url: 'https://worldartlas.netlify.app/'
     },
     {
         title: 'FestLive',
         used: 'HTML, CSS, Bootstrap, @mediaquery',
         projImg: '/projects/festival.png',
         description: 'A landing page for a cultural festival showcasing event details, schedules, and highlights.',
-        url: 'https://festlive.example.com'
+        url: 'https://chetan8383.github.io/FestLive/'
     },
     {
         title: 'Consultancy Site',
         used: 'HTML, CSS, Bootstrap, @mediaquery',
         projImg: '/projects/consaltansy.png',
         description: 'A responsive business consultancy website providing services overview and client testimonials.',
-        url: 'https://consultancy.example.com'
+        url: 'https://chetan8383.github.io/Consultancy-site/'
     },
     {
         title: 'Lakshaya Computer Institute',
         used: 'HTML, CSS, Bootstrap, Swiperjs, AOS, Momento360',
         projImg: '/projects/lakshaya-CI.png',
         description: 'An educational institute website with interactive galleries, animated sections, and 360° views.',
-        url: 'https://lakshaya-ci.example.com'
+        url: 'https://chetan8383.github.io/Lakshaya-CI/'
     },
     {
         title: 'PeakTrip',
         used: 'HTML, CSS, @mediaquery',
         projImg: '/projects/travel.png',
         description: 'A travel agency landing page featuring destinations, packages, and responsive design.',
-        url: 'https://peaktrip.example.com'
+        url: 'https://chetan8383.github.io/PeakTrip/'
     },
 ];
 

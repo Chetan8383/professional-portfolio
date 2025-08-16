@@ -55,7 +55,7 @@ const ResumeCard = () => {
             <div id='resume-card' className="max-w-md mx-auto p-6 flex items-center flex-col gap-4 h-full rounded-2xl shadow-md bg-bg dark:bg-bg-dark border border-border dark:border-border-dark text-center">
                 <img src="/avatar.jpg" className='rounded-full border border-border dark:border-border-dark overflow-hidden object-cover size-15' alt="" />
 
-                <small className='text-gray dark:text-text-dark font-light'>I’m a passionate MERN stack developer skilled in building responsive, user-friendly applications with Tailwind CSS. I leverage tools like Formik and Yup for smooth form handling and validation, turning complex ideas into clean, scalable solutions.</small>
+                <small className='text-text-secondary dark:text-text-secondary-dark font-light'>I’m a passionate MERN stack developer skilled in building responsive, user-friendly applications with Tailwind CSS. I leverage tools like Formik and Yup for smooth form handling and validation, turning complex ideas into clean, scalable solutions.</small>
                 <div className="flex justify-center items-center gap-6 py-4  text-text dark:text-text-dark">
                     <a
                         href="https://github.com/Chetan8383"

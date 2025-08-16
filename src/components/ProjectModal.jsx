@@ -10,7 +10,6 @@ const ProjectModal = ({ project, onClose }) => {
 
     useEffect(() => {
         if (project) {
-            document.body.style.overflow = "hidden";
             // Animate overlay and modal in
             gsap.fromTo(
                 overlayRef.current,

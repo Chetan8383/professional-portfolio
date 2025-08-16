@@ -10,6 +10,7 @@ import Projects from "./pages/Projects";
 import LoadingPage from "./pages/LoadingPage";
 import Contact from './pages/Contact';
 import CopyRight from './components/CopyRight';
+import { Toaster } from 'react-hot-toast';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -41,6 +42,7 @@ function App() {
       <LoadingPage onComplete={() => setIsLoading(false)} />
     ) : (
       <div className="min-h-screen relative bg-bg dark:bg-bg-dark text-text dark:text-text-dark font-poppins">
+        <Toaster/>
         <ThemeToggle />
         <Navbar />
 

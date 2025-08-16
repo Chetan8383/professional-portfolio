@@ -7,7 +7,7 @@ const variants = {
     primary: "bg-bg-dark/10 dark:bg-bg/10 hover:bg-bg-dark/20 hover:dark:bg-bg/20 !rounded-full border border-border dark:border-border-dark",
     white: "bg-bg dark:bg-bg/10",
     accent: 'bg-accent-dark dark:bg-accent text-text-dark !rounded-full',
-    inverse: 'bg-primary-dark dark:bg-primary text-text-dark dark:text-text !rounded-full '
+    inverse: 'bg-primary-dark dark:bg-primary text-text-dark dark:text-text !rounded-full',
 };
 
 const sizes = {
