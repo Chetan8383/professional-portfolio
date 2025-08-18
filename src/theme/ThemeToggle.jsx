@@ -82,7 +82,7 @@ const ThemeToggle = () => {
         peer-checked:after:from-bg-dark peer-checked:after:to-bg-dark
         after:rounded-full after:left-[3px] after:top-[3px] active:after:h-[24px]
         peer-checked:after:top-[60px] peer-checked:after:translate-y-[-100%]
-        shadow-lg duration-300 after:duration-300 after:shadow-md after:bg-primary-dark dark:after:bg-primary"
+        shadow-lg duration-300 after:duration-300 after:shadow-md after:bg-primary dark:after:bg-primary"
                 ></div>
 
             </Tooltip>
