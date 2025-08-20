@@ -149,6 +149,36 @@ const Projects = () => {
         gsap.to(imageRef.current, { opacity: 0, scale: 0.95, duration: 0.3 });
     };
 
+    // inside Projects component
+    useEffect(() => {
+        if (projectView === "grid") {
+            gsap.fromTo(
+                "#project-card",
+                { opacity: 0, y: 30, scale: 0.9 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 0.6,
+                    stagger: 0.1,
+                    ease: "power3.out",
+                }
+            );
+        } else {
+            gsap.fromTo(
+                "#project-card",
+                { opacity: 0, x: -30 },
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.5,
+                    stagger: 0.1,
+                    ease: "power2.out",
+                }
+            );
+        }
+    }, [projectView]);
+
     return (
         <div className="min-h-screen bg-bg dark:bg-bg-dark px-2 md:px-6 py-8 md:py-16 relative">
             <h1 id="heading" className="text-3xl md:text-5xl text-text dark:text-text-dark font-bitcount text-center ">
