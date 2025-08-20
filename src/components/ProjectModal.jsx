@@ -47,15 +47,17 @@ const ProjectModal = ({ project, onClose }) => {
         <div
             ref={overlayRef}
             className="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center z-999999"
+            onClick={handleClose}
         >
             <div
                 ref={modalRef}
                 className="relative bg-bg dark:bg-bg-dark rounded-xl max-w-2xl w-full p-2 shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
             >
                 {/* Close Button */}
                 <button
                     onClick={handleClose}
-                    className="absolute -top-8 right-0 bg-gray rounded-full p-1 text-text-dark dark:text-text-dark hover:scale-110 duration-150 cursor-pointer"
+                    className="absolute top-4 right-4 bg-gray rounded-full p-1 text-text-dark dark:text-text-dark hover:scale-110 duration-150 cursor-pointer"
                 >
                     <X className="size-5" />
                 </button>
@@ -95,6 +97,7 @@ const ProjectModal = ({ project, onClose }) => {
             </div>
         </div>
     );
+
 };
 
 export default ProjectModal;

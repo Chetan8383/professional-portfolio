@@ -183,6 +183,7 @@ const Projects = () => {
                                     src={project.projImg}
                                     alt={`${project.title} preview`}
                                     className="zoom-img w-full h-full object-cover"
+                                    loading="lazy"
                                 />
                             </div>
                         )}
