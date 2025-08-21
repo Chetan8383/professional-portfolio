@@ -128,7 +128,7 @@ const Contact = () => {
       </h1>
 
 
-      <div className="max-w-5xl mx-auto  flex-col md:flex-row p-4 flex gap-4" >
+      <div className="max-w-5xl 2xl:max-w-7xl  mx-auto  flex-col md:flex-row p-4 flex gap-4" >
         {/* left */}
         <div ref={leftRef} className="w-full md:w-1/2 flex p-4 items-end justify-center rounded-3xl bg-cover bg-center bg-[url('/contact-bg.jpg')] dark:bg-[url('/contact-bg-dark.jpg')] shadow-md">
 

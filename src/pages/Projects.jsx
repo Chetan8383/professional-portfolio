@@ -22,6 +22,13 @@ const projects = [
         url: 'https://chatterbox-rqxn.onrender.com/'
     },
     {
+        title: 'fraudo Frontend',
+        used: 'ReactJs, Tailwind Css, Formik,Yup , rechartjs',
+        projImg: '/projects/fraudo.png',
+        description: 'Fraud Detection and Cyber Threat Intelligence.',
+        url: 'https://app.fraudo.io/'
+    },
+    {
         title: 'World Atlas',
         used: 'ReactJs, CSS',
         projImg: '/projects/world-Atlas.png',
@@ -208,7 +215,7 @@ const Projects = () => {
                         className={`w-full ${projectView === 'grid' ? 'flex flex-col items-start gap-2 ' : 'flex items-center border-gradient bg-transparent p-4'} justify-between rounded-xl relative group`}
                     >
                         {projectView === 'grid' && (
-                            <div className="w-full h-60 md:h-80 lg:h-96 overflow-hidden rounded-3xl border border-border dark:border-border-dark">
+                            <div className="w-full h-60 md:h-80 lg:h-96 2xl:h-fit overflow-hidden rounded-3xl border border-border dark:border-border-dark">
                                 <img
                                     src={project.projImg}
                                     alt={`${project.title} preview`}
