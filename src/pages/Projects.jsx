@@ -28,12 +28,19 @@ const projects = [
         description: 'Fraud Detection and Cyber Threat Intelligence.',
         url: 'https://app.fraudo.io/'
     },
+    // {
+    //     title: 'World Atlas',
+    //     used: 'ReactJs, CSS',
+    //     projImg: '/projects/world-Atlas.png',
+    //     description: 'An interactive world atlas with country details, map visuals, and quick search features.',
+    //     url: 'https://worldartlas.netlify.app/'
+    // },
     {
-        title: 'World Atlas',
-        used: 'ReactJs, CSS',
-        projImg: '/projects/world-Atlas.png',
-        description: 'An interactive world atlas with country details, map visuals, and quick search features.',
-        url: 'https://worldartlas.netlify.app/'
+        title: 'Consultancy Site',
+        used: 'HTML, CSS, Bootstrap, @mediaquery',
+        projImg: '/projects/consaltansy.png',
+        description: 'A responsive business consultancy website providing services overview and client testimonials.',
+        url: 'https://chetan8383.github.io/Consultancy-site/'
     },
     {
         title: 'FestLive',
@@ -41,13 +48,6 @@ const projects = [
         projImg: '/projects/festival.png',
         description: 'A landing page for a cultural festival showcasing event details, schedules, and highlights.',
         url: 'https://chetan8383.github.io/FestLive/'
-    },
-    {
-        title: 'Consultancy Site',
-        used: 'HTML, CSS, Bootstrap, @mediaquery',
-        projImg: '/projects/consaltansy.png',
-        description: 'A responsive business consultancy website providing services overview and client testimonials.',
-        url: 'https://chetan8383.github.io/Consultancy-site/'
     },
     {
         title: 'Lakshaya Computer Institute',
@@ -107,7 +107,7 @@ const Projects = () => {
             gsap.fromTo(img,
                 { scale: 1 }, // 👈 start normal
                 {
-                    scale: 1.015,
+                    scale: 1.1,
                     ease: "power1.inOut",
                     scrollTrigger: {
                         trigger: img,
