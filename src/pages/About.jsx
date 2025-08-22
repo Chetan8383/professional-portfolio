@@ -59,7 +59,7 @@ const About = () => {
           <Experience />
         </div>
 
-        <div className='w-full md:max-w-1/3 '>
+        <div className='w-full lg:max-w-1/3 '>
           <ResumeCard />
         </div>
       </div>

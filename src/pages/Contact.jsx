@@ -21,9 +21,7 @@ const Contact = () => {
         scrollTrigger: {
           trigger: leftRef.current,
           start: "top 60%",
-          toggleActions: "play reverse play reverse",
-          // play on enter, reverse on leave, 
-          // play again on enterBack, reverse on leaveBack
+          toggleActions: "play none none none ",
         }
       }
     );
@@ -35,7 +33,7 @@ const Contact = () => {
         scrollTrigger: {
           trigger: rightRef.current,
           start: "top 60%",
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none none",
         }
       }
     );
@@ -206,7 +204,7 @@ const Contact = () => {
             onSubmit={formik.handleSubmit}
             className="inputs mt-10 w-full space-y-4"
           >
-            <div className="flex flex-col md:flex-row justify-between gap-2">
+            <div className="flex flex-col lg:flex-row justify-between gap-2">
               <label htmlFor="firstName" className="flex flex-col gap-1 w-full">
                 <span className="text-xs">First Name</span>
                 <input

@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
-import { Grip, Lightbulb, List } from 'lucide-react';
+import { Lightbulb } from 'lucide-react';
 import Button from '../components/common/Buttons';
 import { useGSAP } from '@gsap/react';
 import SplitText from 'gsap/SplitText';
@@ -56,13 +56,13 @@ const projects = [
         description: 'An educational institute website with interactive galleries, animated sections, and 360° views.',
         url: 'https://chetan8383.github.io/Lakshaya-CI/'
     },
-    {
-        title: 'PeakTrip',
-        used: 'HTML, CSS, @mediaquery',
-        projImg: '/projects/travel.png',
-        description: 'A travel agency landing page featuring destinations, packages, and responsive design.',
-        url: 'https://chetan8383.github.io/PeakTrip/'
-    },
+    // {
+    //     title: 'PeakTrip',
+    //     used: 'HTML, CSS, @mediaquery',
+    //     projImg: '/projects/travel.png',
+    //     description: 'A travel agency landing page featuring destinations, packages, and responsive design.',
+    //     url: 'https://chetan8383.github.io/PeakTrip/'
+    // },
 ];
 
 
@@ -70,7 +70,6 @@ const Projects = () => {
     const imageRef = useRef(null);
     const [hoveredImg, setHoveredImg] = useState(null);
     const [loadedImages, setLoadedImages] = useState({});
-    const [projectView, setProjectView] = useState('grid');
     const [selectedProject, setSelectedProject] = useState(null);
 
     // ✅ Preload all images
@@ -158,33 +157,19 @@ const Projects = () => {
 
     // inside Projects component
     useEffect(() => {
-        if (projectView === "grid") {
-            gsap.fromTo(
-                "#project-card",
-                { opacity: 0, y: 30, scale: 0.9 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    duration: 0.6,
-                    stagger: 0.1,
-                    ease: "power3.out",
-                }
-            );
-        } else {
-            gsap.fromTo(
-                "#project-card",
-                { opacity: 0, x: -30 },
-                {
-                    opacity: 1,
-                    x: 0,
-                    duration: 0.5,
-                    stagger: 0.1,
-                    ease: "power2.out",
-                }
-            );
-        }
-    }, [projectView]);
+        gsap.fromTo(
+            "#project-card",
+            { opacity: 0, y: 30, scale: 0.9 },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: "power3.out",
+            }
+        );
+    }, []);
 
     return (
         <div className="min-h-screen bg-bg dark:bg-bg-dark px-2 md:px-6 py-8 md:py-16 relative">
@@ -192,49 +177,35 @@ const Projects = () => {
                 Projects
             </h1>
 
-            <div className="flex justify-end mb-6 px-2 md:px-6">
-                <Button
-                    variant="primary"
-                    size='sm'
-                    onClick={() => setProjectView(projectView === 'list' ? 'grid' : 'list')}
-                    icon={projectView === 'list' ? <Grip className='size-5' /> : <List className='size-5' />}
-                />
-            </div>
-
             <div
-                className={`grid ${projectView === 'grid' ? 'grid-cols-1 sm:grid-cols-2  gap-6 md:gap-10' : 'flex flex-col'} transition-all duration-500`}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10 transition-all duration-500"
                 onMouseMove={handleMouseMove}
                 id="container"
             >
+
                 {projects.map((project, index) => (
                     <div
                         key={index}
                         onMouseEnter={() => handleMouseEnter(project.projImg)}
                         onMouseLeave={handleMouseLeave}
                         id="project-card"
-                        className={`w-full ${projectView === 'grid' ? 'flex flex-col items-start gap-2 ' : 'flex items-center border-gradient bg-transparent p-4'} justify-between rounded-xl relative group`}
+                        className="w-full flex flex-col items-start gap-2 justify-between rounded-xl relative group"
                     >
-                        {projectView === 'grid' && (
-                            <div className="w-full h-60 md:h-80 lg:h-96 2xl:h-fit overflow-hidden rounded-3xl border border-border dark:border-border-dark">
-                                <img
-                                    src={project.projImg}
-                                    alt={`${project.title} preview`}
-                                    className="zoom-img w-full h-full object-cover"
-                                    loading="lazy"
-                                />
-                            </div>
-                        )}
+                        <div className="w-full h-60 md:h-80 lg:h-96 2xl:h-fit overflow-hidden rounded-3xl border border-border dark:border-border-dark">
+                            <img
+                                src={project.projImg}
+                                alt={`${project.title} preview`}
+                                className="zoom-img w-full h-full object-cover"
+                                loading="lazy"
+                            />
+                        </div>
 
-                        <div className={`flex flex-col gap-2 z-10 ${projectView === 'grid' && 'px-4'}`}>
+                        <div className={`flex flex-col gap-2 z-10 px-4`}>
                             <h1 className="text-md md:text-xl ">{project.title}</h1>
-                            {projectView === 'list' &&
-                                <span className="text-xs md:text-sm text-accent dark:text-accent-dark">
-                                    {project.used}
-                                </span>}
                         </div>
 
                         <Button
-                            className={`${projectView === 'grid' && 'mx-4'}`}
+                            className='mx-4'
                             size='sm'
                             variant="primary"
                             icon={<Lightbulb className="size-4" />}

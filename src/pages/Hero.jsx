@@ -62,7 +62,7 @@ const Hero = () => {
 
 
     return (
-        <section className="relative min-h-screen flex flex-col md:flex-row justify-evenly md:justify-center items-start lg:items-center gap-4 px-6 lg:px-20 overflow-hidden">
+        <section className="relative min-h-screen flex flex-col md:flex-row justify-evenly md:justify-center items-start md:items-center gap-4 px-6 lg:px-20 overflow-hidden">
             {/* Background image */}
             <div
                 ref={bgRef}

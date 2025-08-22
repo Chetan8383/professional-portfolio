@@ -108,7 +108,7 @@ const Skills = () => {
   }, []);
 
   return (
-    <div className=" flex flex-col md:flex-row gap-8" >
+    <div className=" flex flex-col lg:flex-row gap-8" >
       {/* LEFT SIDE - Skills Section */}
       <div className="flex-1 md:sticky md:top-20 self-start w-full" >
         <div className="device-mock-up">
