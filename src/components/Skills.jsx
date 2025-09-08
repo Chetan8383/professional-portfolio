@@ -24,6 +24,7 @@ const skills = [
   { name: 'GSAP', img: '/skills/gsap.png' },
   { name: 'Github', img: '/skills/github.png' },
   { name: 'Figma', img: '/skills/figma.png' },
+  { name: 'VS Code', img: '/skills/vs-code.png' },
 ];
 
 const Skills = () => {
