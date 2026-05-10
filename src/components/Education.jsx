@@ -7,7 +7,7 @@ import Button from './common/Buttons';
 gsap.registerPlugin(ScrollTrigger);
 
 const education = [
-  { degree: "Bachelor of Computer Applications", duration: '2023 - Pursuing', university: 'IGNOU DELHI RC-1' },
+  { degree: "Bachelor of Computer Applications", duration: '2023 - 2026', university: 'IGNOU DELHI RC-1' },
   { degree: 'Diploma In Web Development', duration: '2022 - 2024', university: 'Lakshaya Computer Institute' },
   { degree: "High School", duration: 'Complete - 2023', university: 'kendriya vidyalaya No. - 4' },
 ];
