@@ -1,5 +1,3 @@
-import { useGSAP } from "@gsap/react";
-import gsap from 'gsap';
 import { NavLink } from "react-router-dom";
 
 const variants = {
@@ -28,24 +26,6 @@ const Button = ({
     ...props
 }) => {
     const hasText = !!children;
-
-    useGSAP(() => {
-        gsap.fromTo(
-            "#text",
-            { y: 10, opacity: 0 },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 0.6,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: "#text",
-                    start: "top center",
-                    toggleActions: "play none none none",
-                },
-            }
-        );
-    });
 
     const classes = `
         inline-flex items-center transition-all duration-300 cursor-pointer rounded-md  hover:!scale-105
