@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ThemeToggle from "./theme/ThemeToggle";
 import gsap from 'gsap';
 import { ScrollTrigger, SplitText } from "gsap/all";
-import Lenis from 'lenis'; // ✅ Import Lenis
+import Lenis from 'lenis';
 import Navbar from "./components/ui/Navbar";
 import About from "./pages/About";
 import Hero from "./pages/Hero";

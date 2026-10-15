@@ -1,51 +1,88 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 
+const images = [
+    '/projects/amit-kohli.png',
+    '/projects/webversity.png',
+    '/projects/otakumart.png',
+];
+
 const LoadingPage = ({ onComplete }) => {
-    const [percentage, setPercentage] = useState(0);
     const loaderRef = useRef(null);
-    const counterRef = useRef(null);
+    const imagesRef = useRef([]);
 
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
+
+        document.documentElement.classList.toggle(
+            'dark',
+            savedTheme === 'dark'
+        );
     }, []);
 
     useGSAP(() => {
-        let obj = { val: 0 };
+        const imageElements = imagesRef.current.filter(Boolean);
 
-        gsap.to(obj, {
-            val: 100,
-            duration: 1,
-            ease: 'power3.out',
-            onUpdate: () => {
-                setPercentage(Math.round(obj.val));
-            },
+        gsap.set(imageElements, { opacity: 0, scale: 1.05 });
+        gsap.set(imageElements[0], { opacity: 1, scale: 1 });
+
+        const tl = gsap.timeline({
             onComplete: () => {
-                // Scroll-up animation
                 gsap.to(loaderRef.current, {
-                    x: '-100%',
+                    scale: 0.08,
+                    opacity: 0,
+                    borderRadius: '24px',
+                    duration: 0.8,
                     ease: 'power3.inOut',
-                    onComplete: () => {
-                        if (onComplete) onComplete();
-                    }
+                    onComplete: () => onComplete?.(),
                 });
-            }
+            },
         });
-    }, []);
+
+        // Image shuffle
+        imageElements.forEach((img, i) => {
+            if (i === 0) return;
+
+            tl.to(
+                imageElements[i - 1],
+                {
+                    opacity: 0,
+                    scale: 1.05,
+                    duration: 0.5,
+                    ease: 'power2.inOut',
+                }
+            ).fromTo(
+                img,
+                { opacity: 0, scale: 1.05 },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.5,
+                    ease: 'power2.out',
+                },
+                '<'
+            );
+        });
+    }, { scope: loaderRef });
 
     return (
         <section
             ref={loaderRef}
-            className="fixed inset-0 z-999999 flex flex-col justify-center border-b border-border dark:border-border-dark items-center bg-bg dark:bg-bg-dark text-text dark:text-text-dark  text-4xl md:text-6xl"
+            className="fixed inset-0 z-[999999] flex items-center justify-center overflow-hidden bg-black text-white"
+            style={{ transformOrigin: 'center center' }}
         >
-            <span className='font-bitcount ' ref={counterRef}>{percentage}%</span>
-            <span className='!text-sm font-pacifico animate-pulse'>Loading...</span>
+            {images.map((src, i) => (
+                <img
+                    key={src}
+                    ref={(el) => (imagesRef.current[i] = el)}
+                    src={src}
+                    alt=""
+                    className="absolute inset-0 h-full w-full object-cover"
+                />
+            ))}
+
+            <div className="absolute inset-0 bg-black/30" />
         </section>
     );
 };
